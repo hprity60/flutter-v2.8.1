@@ -1,5 +1,4 @@
 import 'dart:io' show Platform;
-import 'dart:math';
 
 import 'package:auth_app/modules/authentication/widgets/custom_button.dart';
 import 'package:auth_app/modules/authentication/widgets/default_text_field.dart';
