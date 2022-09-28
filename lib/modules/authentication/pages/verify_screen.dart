@@ -96,7 +96,7 @@ class VerifyScreen extends StatelessWidget {
                             VerifyEventSubmit(
                               email: emailController.text,
                               password: passwordController.text,
-                              firstName: lastnameController.text,
+                              firstName: firstnameController.text,
                               lastName: lastnameController.text,
                             ),
                           );
