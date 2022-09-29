@@ -1,3 +1,5 @@
+import 'package:auth_app/data/model/verify_user.dart';
+
 import '../../../utils/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,33 +24,7 @@ class UserProfileScreen extends StatelessWidget {
                 return Text(state.errorMsg);
               }
               if (state is VerifyLoaded) {
-                return Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SizedBox(height: 50),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "User name: ${state.firstName}",
-                            style: const TextStyle(fontSize: 20),
-                          ),
-                          Text(
-                            " ${state.lastName}",
-                            style: const TextStyle(fontSize: 20),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        "Email: ${state.email}",
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                    ],
-                  ),
-                );
+                return Center(child: _buildProfile(state.userModel));
               }
               return Container();
             },
@@ -57,4 +33,34 @@ class UserProfileScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _buildProfile(VerifyUserModel userModel) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      const SizedBox(height: 50),
+      Image.network(userModel.profileUrl),
+      const SizedBox(height: 30),
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "User name: ${userModel.firstname}",
+            style: const TextStyle(fontSize: 20),
+          ),
+          Text(
+            " ${userModel.lastname}",
+            style: const TextStyle(fontSize: 20),
+          ),
+        ],
+      ),
+      Text(
+        "Email: ${userModel.email}",
+        style: const TextStyle(fontSize: 20),
+      ),
+    ],
+  );
 }

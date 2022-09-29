@@ -13,18 +13,13 @@ class VerifyInitial extends VerifyState {}
 class VerifyLoading extends VerifyState {}
 
 class VerifyLoaded extends VerifyState {
-  final String email;
-  final String password;
-  final String firstName;
-  final String lastName;
-  const VerifyLoaded({
-    required this.email,
-    required this.password,
-    required this.firstName,
-    required this.lastName,
+ final VerifyUserModel userModel;
+ const VerifyLoaded({
+    required this.userModel,
   });
+ 
   @override
-  List<Object> get props => [email, password, firstName, lastName];
+  List<Object> get props => [userModel];
 }
 
 class VerifyFailed extends VerifyState {

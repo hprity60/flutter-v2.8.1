@@ -20,6 +20,7 @@ class VerifyScreen extends StatelessWidget {
   final TextEditingController lastnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController profileController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -97,6 +98,7 @@ class VerifyScreen extends StatelessWidget {
                               password: passwordController.text,
                               firstName: firstnameController.text,
                               lastName: lastnameController.text,
+                              profileUrl: profileController.text,
                             ),
                           );
                         },

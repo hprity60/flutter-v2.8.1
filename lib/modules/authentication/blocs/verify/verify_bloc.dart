@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:auth_app/data/model/verify_user.dart';
 import 'package:auth_app/utils/utils.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -55,13 +56,9 @@ class VerifyBloc extends Bloc<VerifyEvent, VerifyState> {
     }
     emit(VerifyLoading());
     try {
-      await repository.verifyUser(
+    final userModel =  await repository.verifyUser(
           event.email, event.password, event.firstName, event.lastName);
-      emit(VerifyLoaded(
-          email: event.email,
-          password: event.password,
-          firstName: event.firstName,
-          lastName: event.lastName));
+      emit(VerifyLoaded(userModel: userModel));
     } catch (e) {
       emit(VerifyFailed(errorMsg: e.toString()));
     }

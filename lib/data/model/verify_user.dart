@@ -4,11 +4,13 @@ class VerifyUserModel {
   final String lastname;
   final String email;
   final String password;
+  final String profileUrl;
   VerifyUserModel({
     required this.firstname,
     required this.lastname,
     required this.email,
     required this.password,
+    required this.profileUrl,
   });
 
 factory VerifyUserModel.fromJson(Map<String, dynamic> json) {
@@ -17,6 +19,7 @@ factory VerifyUserModel.fromJson(Map<String, dynamic> json) {
       lastname: json['LastName'],
       email: json['Email'],
       password: json['Password']??'',
+      profileUrl: json['ProfileImageUrl'],
     );
   }
 

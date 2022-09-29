@@ -1,3 +1,4 @@
+import 'package:auth_app/data/model/verify_user.dart';
 import 'package:flutter/material.dart';
 
 import '../modules/authentication/pages/forgot_password_screen.dart';
@@ -8,6 +9,7 @@ import '../modules/authentication/pages/user_profile_screen.dart';
 import '../modules/authentication/pages/verify_screen.dart';
 
 class RouteNames {
+   VerifyUserModel? userModel;
   static const String signUpScreen = '/signUpScreen';
   static const String loginScreen = '/loginScreen';
   static const String verifyScreen = '/verifyScreen';
@@ -34,7 +36,8 @@ class RouteNames {
             settings: settings, builder: (_) => ResetPasswordScreen());
       case RouteNames.userProfileScreen:
         return MaterialPageRoute(
-            settings: settings, builder: (_) => const UserProfileScreen());
+            settings: settings, builder: (_) =>  UserProfileScreen(
+              ));
 
       default:
         return MaterialPageRoute(
